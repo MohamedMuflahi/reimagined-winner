@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'csv'
+CSV.foreach(Rails.root.join('lib/seed_data.csv'), headers: true) do |row|
+
+    billable = row["Billable?"] == "Yes" ? true : false
+
+    Timesheet.create!(
+        first_name: row["First Name"],
+        last_name: row["Last Name"],
+        client: row["Client"],
+        project: row["Project"],
+        project_code: row["Project Code"],
+        hours: row["Hours"].to_f,
+        billable: billable,
+        billing_rate: row["Billable Rate"].to_i,
+        date: row["Date"]
+    )
+end
