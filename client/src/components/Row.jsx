@@ -24,7 +24,7 @@ const Row = ({ timesheet }) => {
                 <p>{billable ? hours : 0}</p>
             </div>
             <div className="row-item right">
-                <h4>{billable? `$ ${billableAmount}` : "-"}</h4>
+                <h4>{billable ? `$ ${billableAmount}` : "-"}</h4>
             </div>
         </div>
     )

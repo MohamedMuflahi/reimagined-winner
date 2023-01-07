@@ -1,12 +1,12 @@
 class TimesheetsController < ApplicationController
     def index
         timesheets = Timesheet.all
-        render json: timesheets
+        render json: {timesheets: timesheets, total_billable_amount: Timesheet.total_billable_amount, total_hours: Timesheet.total_hours}, status: :ok
     end
 
     def create
         timesheet = Timesheet.create!(user_params)
-        render json: timesheet
+        render json: timesheet, status: :created
     end
 
     private 
