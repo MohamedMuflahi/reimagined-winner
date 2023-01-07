@@ -1,5 +1,6 @@
 import '../styles/Table.css'
 import Row from './Row'
+import TableHeader from './TableHeader'
 const Table = ({ timesheets }) => {
     const renderTimesheets = timesheets.map((timesheet, index) => {
         return (
@@ -9,21 +10,11 @@ const Table = ({ timesheets }) => {
     return (
         <div className="table-container">
             <div className="table-header">
-                <div className="table-header-item">
-                    <p>Name</p>
-                </div>
-                <div className="table-header-item">
-                    <p>Clients</p>
-                </div>
-                <div className="table-header-item right">
-                    <p>Hours</p>
-                </div>
-                <div className="table-header-item right">
-                    <p>Billable Hours</p>
-                </div>
-                <div className="table-header-item right">
-                    <p>Billable Amount</p>
-                </div>
+                <TableHeader name="Name" />
+                <TableHeader name="Clients" />
+                <TableHeader name="Hours" />
+                <TableHeader name="Billable Hours" />
+                <TableHeader name="Billable Amount" />
             </div>
             <div className="table-body">
                 {renderTimesheets}
