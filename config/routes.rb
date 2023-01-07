@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
-  get "/timesheets", to: "timesheets#index"
-  post "/timesheets", to: "timesheets#create"
-  
+    get "/api/timesheets", to: "timesheets#index"
+    post "/api/timesheets", to: "timesheets#create"
 end
