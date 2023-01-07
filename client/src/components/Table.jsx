@@ -15,13 +15,13 @@ const Table = ({ timesheets }) => {
                 <div className="table-header-item">
                     <p>Clients</p>
                 </div>
-                <div className="table-header-item">
+                <div className="table-header-item right">
                     <p>Hours</p>
                 </div>
-                <div className="table-header-item">
+                <div className="table-header-item right">
                     <p>Billable Hours</p>
                 </div>
-                <div className="table-header-item">
+                <div className="table-header-item right">
                     <p>Billable Amount</p>
                 </div>
             </div>

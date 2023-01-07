@@ -8,7 +8,7 @@ const Row = ({ timesheet }) => {
         billable,
         billing_rate
     } = timesheet
-
+    const billableAmount = Number((billing_rate * hours).toPrecision(5))
     return (
         <div className="row-container">
             <div className="row-item">
@@ -17,14 +17,14 @@ const Row = ({ timesheet }) => {
             <div className="row-item">
                 <p>{client}</p>
             </div>
-            <div className="row-item">
+            <div className="row-item right">
                 <p>{hours}</p>
             </div>
-            <div className="row-item">
+            <div className="row-item right">
                 <p>{billable ? hours : 0}</p>
             </div>
-            <div className="row-item">
-                <p>${Number((billing_rate * hours).toPrecision(5))}</p>
+            <div className="row-item right">
+                <h4>{billable? `$ ${billableAmount}` : "-"}</h4>
             </div>
         </div>
     )
