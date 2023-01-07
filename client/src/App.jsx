@@ -1,14 +1,14 @@
 import { useState,useEffect } from 'react'
-import Header from './Header'
-import Table from './Table'
-import './App.css'
+import Header from './components/Header'
+import Table from './components/Table'
+import './styles/App.css'
 
 function App() {
   const [timesheets, setTimesheets] = useState([])
   const fetchTimesheets = async () => {
     const request = await fetch('/api/timesheets')
     const response = await request.json()
-    console.log(response)
+    setTimesheets(response)
   }
   useEffect(() => {
     fetchTimesheets()
