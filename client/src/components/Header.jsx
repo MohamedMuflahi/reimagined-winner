@@ -9,7 +9,7 @@ const Header = ({ totals }) => {
       </div>
       <div className='header-item'>
         <h4>Billable Amount</h4>
-        <h1>${total_billable_amount}</h1>
+        <h1>${total_billable_amount && total_billable_amount.toLocaleString()}</h1>
       </div>
     </div>
   )

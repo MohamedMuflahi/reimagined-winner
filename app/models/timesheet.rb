@@ -1,5 +1,4 @@
 class Timesheet < ApplicationRecord
-    paginates_per 15
     
     def self.total_count
         Timesheet.count

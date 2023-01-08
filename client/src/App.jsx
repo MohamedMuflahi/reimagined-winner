@@ -9,8 +9,10 @@ function App() {
   const [totals, setTotals] = useState({})
   const [totalPages, setTotalPages] = useState(0)
   const [page,setPage] = useState(1)
+  const [perPage, setPerPage] = useState("15")
+
   const fetchTimesheets = async () => {
-    const request = await fetch(`/api/timesheets/${page}`)
+    const request = await fetch(`/api/timesheets/${page}/${perPage}`)
     const response = await request.json()
     setTimesheets(response.timesheets)
     setTotals({
@@ -22,12 +24,12 @@ function App() {
   }
   useEffect(() => {
     fetchTimesheets()
-  }, [page])
+  }, [page,perPage])
 
   return (
     <div className="App">
       <Header totals={totals} />
-      <Table timesheets={timesheets} />
+      <Table timesheets={timesheets} perPage={perPage} setPerPage={setPerPage} />
       <Pager page={page} setPage={setPage} totalPages={totalPages}/>
     </div>
   )

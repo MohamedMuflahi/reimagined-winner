@@ -28,7 +28,7 @@ const Row = ({ timesheet }) => {
                 </p>
             </div>
             <div className="row-item right">
-                <p className='billing-amount-text'>{billable ? `$ ${billableAmount}` : "-"}</p>
+                <p className='billing-amount-text'>{billable ? `$ ${billableAmount.toLocaleString()}` : "-"}</p>
             </div>
         </div>
     )
