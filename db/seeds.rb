@@ -6,10 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'csv'
+first_row = false
+# skipping first row since it is an empty row also skipping the header row
 CSV.foreach(Rails.root.join('lib/seed_data.csv'), headers: true) do |row|
-
-    billable = row["Billable?"] == "Yes" ? true : false
-
+    if  first_row
+        billable = row["Billable?"] == "Yes" ? true : false
     Timesheet.create!(
         first_name: row["First Name"],
         last_name: row["Last Name"],
@@ -21,4 +22,11 @@ CSV.foreach(Rails.root.join('lib/seed_data.csv'), headers: true) do |row|
         billing_rate: row["Billable Rate"].to_i,
         date: row["Date"]
     )
+    else
+        first_row = true
+
+    end
+    
 end
+
+p "Added #{Timesheet.count} timesheets to the database"
