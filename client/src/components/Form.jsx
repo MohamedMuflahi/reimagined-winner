@@ -38,9 +38,7 @@ const Form = () => {
                 date: formData.date
             }),
         })
-
-        const response = await request.json()
-        console.log(response)
+        // Normally would update state here but state is dependent on the page number so I wouldn't want to add it to the wrong page
     }
     const handleFormSubmit = (e) => {
         e.preventDefault()
@@ -69,7 +67,7 @@ const Form = () => {
                         <label>Project Code</label>
                         <input type="text" name="project_code" id="project_code" />
                         <label>Hours</label>
-                        <input type="text" name="hours" id="hours" />
+                        <input type="number" name="hours" id="hours" />
                         <label >Billable?</label>
                         {billable ? <button
                             onClick={handleBilliableButton}>
@@ -81,7 +79,7 @@ const Form = () => {
                             </button>}
 
                         <label >Billing Rate</label>
-                        <input type="text" name="billing_rate" id="billing_rate" />
+                        <input type="number" name="billing_rate" id="billing_rate" />
                         <label >Date</label>
                         <input type="text" name="date" id="date" />
                         <button>

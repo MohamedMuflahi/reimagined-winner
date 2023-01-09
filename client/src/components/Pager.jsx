@@ -2,13 +2,14 @@ import '../styles/Pager.css'
 const Pager = ({ page, setPage, totalPages }) => {
 
     //  limiting the number of page numbers to only display page numbers that are within 2 of the current page
+    // [...Array(totalPages).keys()] generates array like so [0,1,2,3,4...totalPages]
     const limitedPageNumbers = [...Array(totalPages).keys()].filter((i) => {
         return i <= page + 2 && i >= page - 2
     })
 
     const renderPageNumbers = limitedPageNumbers.map((i) => {
         return (
-            <button className='nums' key={i} onClick={() => setPage(i)}>
+            <button className='nums' key={i} onClick={() => setPage(i + 1)}>
                 {i + 1}
             </button>
         )
