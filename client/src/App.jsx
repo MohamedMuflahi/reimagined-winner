@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Table from './components/Table'
 import Pager from './components/Pager'
 import './styles/App.css'
+import Form from './components/Form'
 
 function App() {
   const [timesheets, setTimesheets] = useState([])
@@ -19,7 +20,7 @@ function App() {
       total_hours: response.total_hours,
       total_billable_amount: response.total_billable_amount
     })
-    const pages = Math.ceil(response.total_count / 15)
+    const pages = Math.ceil(response.total_count / perPage)
     setTotalPages(pages)
   }
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
       <Header totals={totals} />
       <Table timesheets={timesheets} perPage={perPage} setPerPage={setPerPage} />
       <Pager page={page} setPage={setPage} totalPages={totalPages}/>
+      <Form/>
     </div>
   )
 }

@@ -10,7 +10,7 @@ class TimesheetsController < ApplicationController
     end
 
     def create
-        timesheet = Timesheet.create!(user_params)
+        timesheet = Timesheet.create!(timesheet_params)
         render json: timesheet, status: :created
     end
 
