@@ -34,5 +34,34 @@
     border-radius: 5px;
 }
 .input-label{
-
+    font-size: large;
+    font-family: 'Rubik', sans-serif;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    text-align: ce;
+}
+.input-button{
+    background-color: #d9d9d9;
+    border: 2px solid #d9d9d9;
+    width: 10%;
+    height: 10%;
+    font-size: large;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 5px;
+}
+.yes-button{
+    background-color: #66ff66
+}
+.no-button{
+    background-color: #ff3300
+    ;
+}
+.submit-button{
+    width: 20%;
+    background-color: #66ccff
+    ;
+}
+.close-button{
+    background-color: black;
+    color: white;
 }

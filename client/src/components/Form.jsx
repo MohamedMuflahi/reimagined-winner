@@ -20,7 +20,7 @@ const Form = () => {
                 hours: parseInt(formData.get("hours")),
                 billable: billable,
                 billing_rate: parseInt(formData.get("billing_rate")),
-                date:formData.get("date")
+                date: formData.get("date")
             }),
         })
         // Normally would update state here but state is dependent on the page number so I wouldn't want to add it to the wrong page
@@ -56,22 +56,27 @@ const Form = () => {
                         <input className="input" type="number" name="hours" id="hours" />
                         <label className="input-label">Billable?</label>
                         {billable ? <button
+                            className="input-button yes-button"
                             onClick={handleBilliableButton}>
                             YES
                         </button>
                             :
-                            <button onClick={handleBilliableButton}>
+                            <button
+                                className="input-button no-button"
+                                onClick={handleBilliableButton}>
                                 NO
                             </button>}
                         <label className="input-label"> Billing Rate</label>
                         <input className="input" type="number" name="billing_rate" id="billing_rate" />
                         <label className="input-label">Date</label>
                         <input className="input" type="text" name="date" id="date" />
-                        <button>
+                        <button className="submit-button input-button input-label ">
                             Submit
                         </button>
                     </form>
-                    <button onClick={toggleForm}>X</button>
+                    <button className="close-button input-button" onClick={toggleForm}>
+                        Close
+                        </button>
                 </div>
 
                 :
