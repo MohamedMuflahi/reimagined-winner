@@ -30,8 +30,8 @@ function App() {
   return (
     <div className="App">
       <Header totals={totals} />
-      <Table timesheets={timesheets} perPage={perPage} setPerPage={setPerPage} />
-      <Pager page={page} setPage={setPage} totalPages={totalPages}/>
+      <Table timesheets={timesheets} perPage={perPage} setPerPage={setPerPage}  setPage={setPage}/>
+      <Pager page={page} setPage={setPage} totalPages={totalPages} />
       <Form/>
     </div>
   )

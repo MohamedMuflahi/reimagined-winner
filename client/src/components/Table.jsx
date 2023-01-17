@@ -1,7 +1,7 @@
 import '../styles/Table.css'
 import Row from './Row'
 import TableHeader from './TableHeader'
-const Table = ({ timesheets,perPage, setPerPage }) => {
+const Table = ({ timesheets, perPage, setPerPage ,setPage}) => {
     const renderTimesheets = timesheets.map((timesheet, index) => {
         return (
             <Row key={index} timesheet={timesheet} />
@@ -16,9 +16,13 @@ const Table = ({ timesheets,perPage, setPerPage }) => {
                 <TableHeader name="Billable Hours" />
                 <TableHeader name="Billable Amount" />
                 <select
-                className="select" 
-                value={perPage} 
-                onChange={(e)=>setPerPage(e.target.value)}>
+                    className="select"
+                    value={perPage}
+                    onChange={(e) => {
+                        setPerPage(e.target.value)
+                        setPage(1)
+                    }
+                    }>
                     <option value="15">15</option>
                     <option value="25">25</option>
                     <option value="50">50</option>
